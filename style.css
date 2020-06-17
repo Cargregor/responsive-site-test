@@ -92,6 +92,12 @@ header ul li a.active:before { width: 40px; }
     max-width: 500px;
     margin-right: 50px;
 }
+.content .bannerText div {
+    display: none;
+}
+.content .bannerText .active {
+    display: initial;
+}
 .content .bannerText h2 {
     font-size: 54px;
     text-transform: uppercase;
@@ -128,8 +134,8 @@ header ul li a.active:before { width: 40px; }
 } .content .bannerText a:hover:before { width: 100%; }
 .content .bannerImg {
     position: relative;
-    width: 440px;
-    height: 440px;
+    width: 400px;
+    height: 400px;
     background: #000;
 }
 .content .bannerImg img {
@@ -140,4 +146,127 @@ header ul li a.active:before { width: 40px; }
     height: 100%;
     object-fit: cover;
     transition: .5s;
+}
+.content .bannerImg img {
+    display: none;
+}
+.content .bannerImg .active {
+    display: initial;
+}
+
+.icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 0;
+}
+.icons .sci,
+.icons .controls {
+    position: relative;
+    display: flex;
+}
+.icons .sci li {
+    list-style: none;
+    margin-right: 30px;
+}
+.icons .sci li img {
+    display: inline-block;
+    max-height: 24px;
+    transition: .5s ease-in-out;
+} .icons .sci li:hover img {
+    transform: translateY(-10px);
+}
+.icons .controls li {
+    list-style: none;
+    margin-left: 20px;
+    cursor: pointer;
+    filter: invert(1);
+}
+.icons .controls li img {
+    display: inline-block;
+    max-height: 30px;
+    transition: .5s ease-in-out;
+} .icons .controls li:hover img {
+    opacity: .05;
+}
+
+.menuIcon {
+    display: none;
+}
+@media (max-width: 992px) {
+    .container {
+        padding: 20px 50px;
+    } .container:before {
+        display: none;
+    }
+
+    header ul {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #fff;
+        z-index: 10000;
+        padding: 100px 0;
+    }
+    header.active ul {
+        display: initial;
+    }
+    header ul li {
+        padding: 20px;
+        text-align: center;
+    }
+    header ul li a {
+        color: #333;
+        font-size: 36px;
+    }
+    header ul li:nth-child(3) a,
+    header ul li:nth-child(4) a {
+        color: initial;
+    }
+    header ul li a:hover:before,
+    header ul li a.active:before
+    { width: 100%; }
+    
+    .menuIcon {
+        display: initial;
+        position: fixed;
+        right: 50px;
+        cursor: pointer;
+        padding: 8px;
+        z-index: 10000;
+        background: #fff url("menu-of-three-lines.png");
+        width: 34px;
+        height: 34px;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    header.active .menuIcon {
+        background: #fff url("multiplication.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .content {
+        margin-top: 0;
+        flex-direction: column-reverse;
+    }
+    .content .bannerText {
+        max-width: 100%;
+        padding-right: 0;
+    }
+    .content .bannerText h2 {
+        font-size: 30px;
+    }
+    .content .bannerImg {
+        width: 100%;
+        height: 40vh;
+        margin: 20px 0;
+    }
+
+    .icons .controls li {
+        filter: invert(0);
+    }
 }
